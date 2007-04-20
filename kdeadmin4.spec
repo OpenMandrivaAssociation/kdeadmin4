@@ -1,4 +1,4 @@
-%define branch_date 20070311
+%define branch_date 20070418
 
 
 %define _prefix /opt/kde4/
