@@ -98,8 +98,7 @@ administrator might need:
 %dir %_datadir/apps/knetworkconf/
 %_datadir/apps/knetworkconf/*
 %_datadir/config.kcfg/kuser.kcfg
-%_datadir/services/*.desktop
-%_libdir/kde4/kfile_*.*
+%_datadir/kde4/services/*.desktop
 %_libdir/kde4/kcm_knetworkconfmodule.so
 %_libdir/pkgconfig/system-tools-backends.pc
 %_iconsdir/*/*/*/*
@@ -243,6 +242,4 @@ rm -rf %buildroot/%_docdir/HTML/en/lilo-config
 
 %clean
 rm -fr %buildroot
-
-
 
