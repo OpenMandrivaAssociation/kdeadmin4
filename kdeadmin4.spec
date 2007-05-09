@@ -28,8 +28,8 @@
 %define lib_name %lib_name_orig%lib_major
 
 Name:		kdeadmin4
-Version:    3.80.3
-Release:        %mkrel 0.%branch_date.5
+Version:    3.90.1
+Release:        %mkrel 0.%branch_date.1
 Group:		Graphical desktop/KDE
 Summary:	K Desktop Environment - Adminstrative Tools
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
