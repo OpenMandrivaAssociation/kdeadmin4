@@ -189,8 +189,6 @@ used Linux boot loader.
 cd $RPM_BUILD_DIR/kdeadmin
 
 %cmake_kde4 \
-       -DDBUS_SERVICES_DIR=%_kde_kde_datadir/dbus-1/services \
-       -DDBUS_INTERFACES_DIR=%_kde_kde_datadir/dbus-1/interfaces \
 %if %use_enable_final
       -DKDE4_ENABLE_FINAL=ON \
 %endif
