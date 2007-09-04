@@ -6,7 +6,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %unstable
@@ -21,8 +21,8 @@
 %define lib_name %lib_name_orig%lib_major
 
 Name:		kdeadmin4
-Version:        3.91
-Release:        %mkrel 0.%revision.1
+Version: 3.93.0
+Release: %mkrel 1
 Group:		Graphical desktop/KDE
 Summary:	K Desktop Environment - Adminstrative Tools
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
@@ -183,28 +183,16 @@ used Linux boot loader.
 #------------------------------------------------------------------------	
 
 %prep
-%setup -q -n kdeadmin
+%setup -q -n kdeadmin-%version
 
 %build
-cd $RPM_BUILD_DIR/kdeadmin
-
-%cmake_kde4 \
-%if %use_enable_final
-      -DKDE4_ENABLE_FINAL=ON \
-%endif
-%if %use_enable_pie
-      -DKDE4_ENABLE_FPIE=ON \
-%endif
-%if %unstable
-      -DCMAKE_BUILD_TYPE=debugfull
-%endif
+%cmake_kde4 
 
 
 %make
 
 %install
 rm -fr %buildroot
-cd $RPM_BUILD_DIR/kdeadmin
 cd build
 
 make DESTDIR=%buildroot install
