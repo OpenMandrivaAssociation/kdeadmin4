@@ -114,7 +114,7 @@ administrator might need:
 
 %package -n kde4-kpackage
 Group:      Graphical desktop/KDE
-Summary:    Manager for DEB, RPM.
+Summary:    Manager for DEB, RPM
 Requires:   %name = %epoch:%version-%release
 Provides:   kpackage4 = %epoch:%version
 Obsoletes:  %name-kpackage
@@ -159,7 +159,7 @@ using drag'n'drop.
 %ifnarch ppc
 %package -n kde4-lilo
 Group:      Graphical desktop/KDE
-Summary:    Configure lilo.
+Summary:    Configure lilo
 Requires:   %name = %epoch:%version-%release
 Obsoletes:  %name-lilo
 
