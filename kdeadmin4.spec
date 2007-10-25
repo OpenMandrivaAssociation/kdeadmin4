@@ -1,4 +1,4 @@
-%define revision 681364
+%define revision 728870
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -6,7 +6,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch 0
+%define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %unstable
@@ -21,16 +21,16 @@
 %define lib_name %lib_name_orig%lib_major
 
 Name:		kdeadmin4
-Version: 3.93.0
-Release: %mkrel 1
+Version:        3.94.1
+Release:        %mkrel 1
 Group:		Graphical desktop/KDE
 Summary:	K Desktop Environment - Adminstrative Tools
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch:		2
 %if %branch
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version-%revision.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.%revision.tar.bz2
 %else
-Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 %endif
 Source1:	kpackage.pamd
 Patch1:		kdeadmin-3.5.5-knetworkconf-add-20071-support.patch
