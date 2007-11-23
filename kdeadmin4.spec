@@ -1,4 +1,4 @@
-%define revision 728870
+%define revision 739654
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -21,7 +21,7 @@
 %define lib_name %lib_name_orig%lib_major
 
 Name:		kdeadmin4
-Version:        3.94.1
+Version:        3.96.1
 Release:        %mkrel 1
 Group:		Graphical desktop/KDE
 Summary:	K Desktop Environment - Adminstrative Tools
@@ -92,9 +92,11 @@ administrator might need:
 %_kde_datadir/apps/knetworkconf/*
 %_kde_datadir/config.kcfg/kuser.kcfg
 %_kde_datadir/kde4/services/*.desktop
-%_kde_libdir/kde4/kcm_knetworkconfmodule.so
-%_kde_libdir/pkgconfig/system-tools-backends.pc
 %_kde_iconsdir/*/*/*/*
+%_kde_libdir/kde4/kcm_knetworkconfmodule.so
+%_kde_datadir/kde4/services/*.desktop
+%_kde_libdir/kde4/kcm_knetworkconfmodule.so
+#%_kde_libdir/pkgconfig/system-tools-backends.pc
 %dir %_kde_docdir/HTML/en/kuser/
 %doc %_kde_docdir/HTML/en/kuser/*.bz2
 %doc %_kde_docdir/HTML/en/kuser/*.docbook
@@ -131,12 +133,14 @@ and Slackware tgz software packages.
 %config(noreplace) %_sysconfdir/pam.d/kpackage
 %_kde_iconsdir/*/*/*/kpackage.png
 %_kde_datadir/applications/kde4/kpackage.desktop
+%_kde_datadir/config.kcfg/kpackageSettings.kcfg
 %dir %_kde_datadir/apps/kpackage
 %_kde_datadir/apps/kpackage/*
 %dir %_kde_docdir/HTML/en/kpackage/
 %doc %_kde_docdir/HTML/en/kpackage/*.bz2
 %doc %_kde_docdir/HTML/en/kpackage/*.docbook
 %doc %_kde_docdir/HTML/en/kpackage/*.png
+
 
 #------------------------------------------------------------------------	
 
