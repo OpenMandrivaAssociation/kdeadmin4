@@ -1,4 +1,4 @@
-%define revision 739654
+%define revision 746368
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -21,8 +21,8 @@
 %define lib_name %lib_name_orig%lib_major
 
 Name:		kdeadmin4
-Version:        3.96.1
-Release:        %mkrel 1
+Version:        3.97.1
+Release:        %mkrel 0.%revision.1
 Group:		Graphical desktop/KDE
 Summary:	K Desktop Environment - Adminstrative Tools
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
@@ -96,7 +96,7 @@ administrator might need:
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
 %_kde_datadir/kde4/services/*.desktop
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
-#%_kde_libdir/pkgconfig/system-tools-backends.pc
+%exclude %_kde_libdir/pkgconfig/system-tools-backends.pc
 %dir %_kde_docdir/HTML/en/kuser/
 %doc %_kde_docdir/HTML/en/kuser/*.bz2
 %doc %_kde_docdir/HTML/en/kuser/*.docbook
