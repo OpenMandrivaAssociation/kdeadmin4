@@ -1,4 +1,4 @@
-%define revision 746368
+%define revision 750650
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -22,14 +22,15 @@
 
 Name:		kdeadmin4
 Version:        3.97.1
-Release:        %mkrel 0.%revision.1
 Group:		Graphical desktop/KDE
 Summary:	K Desktop Environment - Adminstrative Tools
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch:		2
 %if %branch
+Release:        %mkrel 0.%revision.1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.%revision.tar.bz2
 %else
+Release:        %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 %endif
 Source1:	kpackage.pamd
