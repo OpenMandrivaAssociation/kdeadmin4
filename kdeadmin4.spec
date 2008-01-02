@@ -35,6 +35,7 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 %endif
 Source1:	kpackage.pamd
 Patch1:		kdeadmin-3.5.5-knetworkconf-add-20071-support.patch
+BuildRoot:	%_tmppath/%name-%version-%release-root
 License:	GPL
 Requires:	pciutils
 BuildRequires: X11-devel 
