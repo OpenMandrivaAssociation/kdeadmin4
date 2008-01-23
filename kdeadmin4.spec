@@ -6,7 +6,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %unstable
@@ -21,7 +21,7 @@
 %define lib_name %lib_name_orig%lib_major
 
 Name:		kdeadmin4
-Version:        3.97.1
+Version:        4.0.0
 Group:		Graphical desktop/KDE
 Summary:	K Desktop Environment - Adminstrative Tools
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
