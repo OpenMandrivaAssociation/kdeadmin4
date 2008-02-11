@@ -1,43 +1,20 @@
-%define revision 750650
-
-%define use_enable_final 1
-%{?_no_enable_final: %{expand: %%global use_enable_final 0}}
-
-%define unstable 1
-%{?_unstable: %{expand: %%global unstable 1}}
-
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %unstable
-%define dont_strip 1
-%endif
-
-%define use_enable_pie 1
-%{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
-
 %define lib_name_orig %mklibname kdeadmin4
 %define lib_major 1
 %define lib_name %lib_name_orig%lib_major
 
-Name:		kdeadmin4
-Version:        4.0.0
-Group:		Graphical desktop/KDE
-Summary:	K Desktop Environment - Adminstrative Tools
-URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
-Epoch:		2
-%if %branch
-Release:        %mkrel 0.%revision.1
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.%revision.tar.bz2
-%else
-Release:        %mkrel 1
+Name: kdeadmin4
+Version: 4.0.1
+Group: Graphical desktop/KDE
+Summary: K Desktop Environment - Adminstrative Tools
+URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
+Epoch: 2
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
-%endif
-Source1:	kpackage.pamd
-Patch1:		kdeadmin-3.5.5-knetworkconf-add-20071-support.patch
+Source1: kpackage.pamd
+Patch0: kdeadmin-post-4.0.1-knetworkconf-mandriva.patch
 BuildRoot:	%_tmppath/%name-%version-%release-root
-License:	GPL
-Requires:	pciutils
+License: GPL
+Requires: pciutils
 BuildRequires: X11-devel 
 BuildRequires: freetype2-devel 
 BuildRequires: bzip2-devel 
@@ -49,7 +26,6 @@ BuildRequires: rpm-devel
 BuildRequires: libz-devel
 BuildRequires: pam-devel
 BuildRequires: libxml2-utils
-%define mini_release %mkrel 0.%revision.1
 BuildRequires: kdelibs4-devel
 BuildRequires: kdepimlibs4-devel
 %ifarch %{ix86} x86_64
@@ -189,10 +165,10 @@ used Linux boot loader.
 
 %prep
 %setup -q -n kdeadmin-%version
+%patch0 -p0
 
 %build
 %cmake_kde4 
-
 
 %make
 
@@ -202,16 +178,10 @@ cd build
 
 make DESTDIR=%buildroot install
 
-
 # Install kdebase pam configuration file
 install -d %buildroot/%_sysconfdir/pam.d
 install -m644 %SOURCE1 %buildroot/%_sysconfdir/pam.d/kpackage
 
-rm -rf %buildroot/%_kde_datadir/applnk/Settings/Peripherals/
-
-%ifarch ppc
-rm -rf %buildroot/%_kde_docdir/HTML/en/lilo-config
-%endif
 
 %clean
 rm -fr %buildroot
