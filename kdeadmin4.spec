@@ -73,21 +73,10 @@ administrator might need:
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
 %_kde_datadir/kde4/services/*.desktop
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
+%_kde_docdir/*/*/kuser
+%_kde_docdir/*/*/knetworkconf
+%_kde_docdir/*/*/kcron
 %exclude %_kde_libdir/pkgconfig/system-tools-backends.pc
-%dir %_kde_docdir/HTML/en/kuser/
-%doc %_kde_docdir/HTML/en/kuser/*.bz2
-%doc %_kde_docdir/HTML/en/kuser/*.docbook
-%doc %_kde_docdir/HTML/en/kuser/*.png
-
-%dir %_kde_docdir/HTML/en/knetworkconf/
-%doc %_kde_docdir/HTML/en/knetworkconf/*.png
-%doc %_kde_docdir/HTML/en/knetworkconf/*.bz2
-%doc %_kde_docdir/HTML/en/knetworkconf/*.docbook
-
-%dir %_kde_docdir/HTML/en/kcron/
-%doc %_kde_docdir/HTML/en/kcron/*.bz2
-%doc %_kde_docdir/HTML/en/kcron/*.docbook
-%doc %_kde_docdir/HTML/en/kcron/*.png
 
 #------------------------------------------------------------------------	
 
@@ -113,11 +102,7 @@ and Slackware tgz software packages.
 %_kde_datadir/config.kcfg/kpackageSettings.kcfg
 %dir %_kde_datadir/apps/kpackage
 %_kde_datadir/apps/kpackage/*
-%dir %_kde_docdir/HTML/en/kpackage/
-%doc %_kde_docdir/HTML/en/kpackage/*.bz2
-%doc %_kde_docdir/HTML/en/kpackage/*.docbook
-%doc %_kde_docdir/HTML/en/kpackage/*.png
-
+%_kde_docdir/*/*/kpacka
 
 #------------------------------------------------------------------------	
 
@@ -155,9 +140,7 @@ used Linux boot loader.
 %files -n kde4-lilo
 %defattr(-,root,root)
 %_kde_libdir/kde4/kcm_lilo.so
-%dir %_kde_docdir/HTML/en/lilo-config/
-%doc %_kde_docdir/HTML/en/lilo-config/*.bz2
-%doc %_kde_docdir/HTML/en/lilo-config/*.docbook
+%_kde_docdir/*/*/lilo-config
 
 %endif
 
