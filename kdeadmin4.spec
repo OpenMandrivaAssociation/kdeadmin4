@@ -1,6 +1,7 @@
 Name: kdeadmin4
 Version: 4.0.1
 Group: Graphical desktop/KDE
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary: K Desktop Environment - Adminstrative Tools
 URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch: 2
