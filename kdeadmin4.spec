@@ -5,7 +5,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary: K Desktop Environment - Adminstrative Tools
 URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch: 2
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Source1: kpackage.pamd
 Patch0: kdeadmin-post-4.0.1-knetworkconf-mandriva.patch
@@ -61,6 +61,7 @@ administrator might need:
 Group:      Graphical desktop/KDE
 Summary:    kde4 kuser
 Provides:   kuser4
+Conflicts:  kdeadmin4 < 2:4.0.1
 
 %description -n kde4-kuser
 Kde4 kuser.
@@ -80,6 +81,7 @@ Kde4 kuser.
 Group:      Graphical desktop/KDE
 Summary:    kde4 kcron
 Provides:   kcron4
+Conflicts:  kdeadmin4 < 2:4.0.1
 
 %description -n kde4-kcron
 Kde4 kcron.
@@ -99,6 +101,7 @@ Kde4 kcron.
 Group:      Graphical desktop/KDE
 Summary:    kde4 knetworkconf
 Provides:   knetworkconf4
+Conflicts:  kdeadmin4 < 2:4.0.1
 
 %description -n kde4-knetworkconf
 Kde4 knetworkconf.
@@ -119,6 +122,7 @@ Kde4 knetworkconf.
 Group:      Graphical desktop/KDE
 Summary:    Configure lilo
 Obsoletes:  %name-lilo
+Conflicts:  kdeadmin4 < 2:4.0.1
 
 %description -n kde4-lilo
 lilo-config is a kcontrol plugin for configuring LILO, the most commonly
@@ -142,6 +146,7 @@ used Linux boot loader.
 Group: Graphical desktop/KDE
 Summary:Manager for DEB, RPM
 Obsoletes: %name-kpackage
+Conflicts:  kdeadmin4 < 2:4.0.1
 
 %description -n kde4-kpackage
 Kpackage is a package manager that is integrated into the K Desktop 
