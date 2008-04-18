@@ -5,7 +5,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary: K Desktop Environment - Adminstrative Tools
 URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch: 2
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Source1: kpackage.pamd
 License: GPL
@@ -61,7 +61,7 @@ Group:      Graphical desktop/KDE
 Summary:    kde4 kuser
 Provides:   kuser4
 Conflicts:  kdeadmin4 < 2:4.0.1
-Obsoletes: kde4-kuser < 1:4.0.68
+Obsoletes: kde4-kuser < 2:4.0.68
 Provides: kde4-kuser = %epoch:%version
 
 %description -n kuser
@@ -83,7 +83,7 @@ Group:      Graphical desktop/KDE
 Summary:    kde4 kcron
 Provides:   kcron4
 Conflicts:  kdeadmin4 < 2:4.0.1
-Obsoletes: kde4-kcron < 1:4.0.68
+Obsoletes: kde4-kcron < 2:4.0.68
 Provides: kde4-kcron = %epoch:%version
 
 %description -n kcron
@@ -144,7 +144,7 @@ Group:      Graphical desktop/KDE
 Summary:    kde4 knetworkconf
 Provides:   knetworkconf4
 Conflicts:  kdeadmin4 < 2:4.0.1
-Obsoletes: kde4-knetworkconf < 1:4.0.68
+Obsoletes: kde4-knetworkconf < 2:4.0.68
 Provides: kde4-knetworkconf = %epoch:%version
 
 %description -n knetworkconf
@@ -191,7 +191,7 @@ Group: Graphical desktop/KDE
 Summary:Manager for DEB, RPM
 Obsoletes: %name-kpackage
 Conflicts:  kdeadmin4 < 2:4.0.1
-Obsoletes: kde4-kpackage < 1:4.0.68
+Obsoletes: kde4-kpackage < 2:4.0.68
 Provides: kde4-kpackage = %epoch:%version
 
 %description -n kpackage
