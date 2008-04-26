@@ -1,11 +1,11 @@
 Name: kdeadmin4
-Version: 4.0.70
+Version: 4.0.71
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary: K Desktop Environment - Adminstrative Tools
 URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch: 2
-Release: %mkrel 2
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Source1: kpackage.pamd
 License: GPL
