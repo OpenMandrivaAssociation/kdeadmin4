@@ -134,7 +134,7 @@ KSystemLog has the following features :
 %_kde_bindir/ksystemlog
 %_kde_appsdir/ksystemlog/ksystemlogui.rc
 %_kde_iconsdir/hicolor/*/apps/ksystemlog.*
-%_kde_datadir/kde4/services/ksystemlog.desktop
+%_kde_datadir/applications/kde4/ksystemlog.desktop
 %_kde_docdir/*/*/ksystemlog
 
 #------------------------------------------------------------------------	
