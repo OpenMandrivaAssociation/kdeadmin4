@@ -132,7 +132,7 @@ KSystemLog has the following features :
 %files -n ksystemlog
 %defattr(-,root,root)
 %_kde_bindir/ksystemlog
-%_kde_appsdir/ksystemlog/ksystemlogui.rc
+%_kde_appsdir/ksystemlog
 %_kde_iconsdir/hicolor/*/apps/ksystemlog.*
 %_kde_datadir/applications/kde4/ksystemlog.desktop
 %_kde_docdir/*/*/ksystemlog
@@ -154,7 +154,7 @@ Kde4 knetworkconf.
 %defattr(-,root,root)
 %_kde_datadir/kde4/services/kcm_knetworkconfmodule.desktop
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
-%_kde_datadir/apps/knetworkconf
+%_kde_appsdir/knetworkconf
 %_kde_docdir/*/*/knetworkconf
 %_kde_iconsdir/*/*/*/knetworkconf*
 %_kde_iconsdir/*/*/*/networ*
@@ -206,7 +206,7 @@ and Slackware tgz software packages.
 %_kde_iconsdir/*/*/*/kpackage*
 %_kde_datadir/applications/kde4/kpackage.desktop
 %_kde_datadir/config.kcfg/kpackageSettings.kcfg
-%_kde_datadir/apps/kpackage
+%_kde_appsdir/kpackage
 %_kde_docdir/*/*/kpackage
 %exclude %_kde_libdir/pkgconfig/system-tools-backends.pc
 
