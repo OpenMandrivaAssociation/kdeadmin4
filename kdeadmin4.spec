@@ -5,7 +5,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary: K Desktop Environment - Adminstrative Tools
 URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch: 2
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Source1: kpackage.pamd
 License: GPL
@@ -21,8 +21,8 @@ BuildRequires: rpm-devel
 BuildRequires: libz-devel
 BuildRequires: pam-devel
 BuildRequires: libxml2-utils
-BuildRequires: kdelibs4-devel
-BuildRequires: kdepimlibs4-devel
+BuildRequires: kdelibs4-devel >= %version
+BuildRequires: kdepimlibs4-devel >= %version
 %ifarch %{ix86} x86_64
 BuildRequires:	lilo
 %endif
