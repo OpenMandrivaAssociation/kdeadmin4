@@ -163,7 +163,7 @@ Linux machine.
 
 #------------------------------------------------------------------------	
 
-%ifnarch ppc
+%ifarch %{ix86} x86_64
 %package -n kde4-lilo
 Group:      Graphical desktop/KDE
 Summary:    Configure lilo
