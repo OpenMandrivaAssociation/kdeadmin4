@@ -2,7 +2,7 @@ Name: kdeadmin4
 Version: 4.0.80
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Summary: K Desktop Environment - Adminstrative Tools
+Summary: K Desktop Environment - Administrative Tools
 URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Epoch: 2
 Release: %mkrel 2
@@ -40,7 +40,7 @@ administrator might need:
 	- kdat
    		Tape backup tool.
 	- kfile-plugins
-    	Make Konquerer display additional info on about *.dep and *.rpm files.
+    	Make Konqueror display additional info on about *.dep and *.rpm files.
 	- ksysv
     	An editor for System V startup schemes.
 	- kuser
@@ -58,14 +58,14 @@ administrator might need:
 
 %package -n kuser
 Group:      Graphical desktop/KDE
-Summary:    kde4 kuser
+Summary:    Users and groups manager
 Provides:   kuser4
 Conflicts:  kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kuser < 2:4.0.68
 Provides: kde4-kuser = %epoch:%version
 
 %description -n kuser
-Kde4 kuser.
+Kuser is a tool to create, remove and modify user accounts and groups.
 
 %files -n kuser
 %defattr(-,root,root)
@@ -80,14 +80,15 @@ Kde4 kuser.
 
 %package -n kcron
 Group:      Graphical desktop/KDE
-Summary:    kde4 kcron
+Summary:    Graphical task scheduler
 Provides:   kcron4
 Conflicts:  kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kcron < 2:4.0.68
 Provides: kde4-kcron = %epoch:%version
 
 %description -n kcron
-Kde4 kcron.
+Kcron is a graphical frontend to the cron system, used to schedule regular 
+tasks on a Unix system.
 
 %files -n kcron
 %defattr(-,root,root)
@@ -141,14 +142,15 @@ KSystemLog has the following features :
 
 %package -n knetworkconf
 Group:      Graphical desktop/KDE
-Summary:    kde4 knetworkconf
+Summary:    KDE Control Center module to configure network
 Provides:   knetworkconf4
 Conflicts:  kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-knetworkconf < 2:4.0.68
 Provides: kde4-knetworkconf = %epoch:%version
 
 %description -n knetworkconf
-Kde4 knetworkconf.
+KNetworkConf is a KDE Control Center module to configure TCP/IP settings on a 
+Linux machine.
 
 %files -n knetworkconf
 %defattr(-,root,root)
@@ -196,7 +198,7 @@ Provides: kde4-kpackage = %epoch:%version
 
 %description -n kpackage
 Kpackage is a package manager that is integrated into the K Desktop 
-Environemnt.  It works with the KDE File Manager to manage DEB, RPM 
+Environement. It works with the KDE File Manager to manage DEB, RPM 
 and Slackware tgz software packages.
 
 %files -n kpackage
