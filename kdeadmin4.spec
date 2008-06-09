@@ -174,9 +174,13 @@ Conflicts:  kdeadmin4 < 2:4.0.1
 lilo-config is a kcontrol plugin for configuring LILO, the most commonly
 used Linux boot loader.
 
+%if %mdkversion < 200900
 %post -n kde4-lilo -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n kde4-lilo -p /sbin/ldconfig
+%endif
 
 %files -n kde4-lilo
 %defattr(-,root,root)
