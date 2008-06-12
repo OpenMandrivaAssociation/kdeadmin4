@@ -1,5 +1,5 @@
 Name: kdeadmin4
-Version: 4.0.81
+Version: 4.0.82
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary: K Desktop Environment - Administrative Tools
