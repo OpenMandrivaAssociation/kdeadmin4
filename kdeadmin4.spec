@@ -8,6 +8,7 @@ Epoch: 2
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Source1: kpackage.pamd
+Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 License: GPL
 Requires: pciutils
 BuildRequires: X11-devel 
@@ -220,7 +221,7 @@ and Slackware tgz software packages.
 
 %prep
 %setup -q -n kdeadmin-%version
-
+%patch0 -p0
 %build
 %cmake_kde4 
 
