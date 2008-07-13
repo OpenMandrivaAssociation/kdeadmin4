@@ -200,7 +200,7 @@ Obsoletes: %name-kpackage
 Conflicts:  kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kpackage < 2:4.0.68
 Provides: kde4-kpackage = %epoch:%version
-Requires: smart
+Suggests: smart
 
 %description -n kpackage
 Kpackage is a package manager that is integrated into the K Desktop 
