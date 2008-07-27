@@ -3,7 +3,7 @@ Version: 4.1.0
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary: K Desktop Environment - Administrative Tools
-URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
+URL: http://www.kde.org
 Epoch: 2
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
@@ -37,19 +37,11 @@ Requires: knetworkconf
 The kdeadmin package contains packages that usually only a system
 administrator might need:
 	- kcron
-    	Editor for the cron command scheduler.
-	- kdat
-   		Tape backup tool.
-	- kfile-plugins
-    	Make Konqueror display additional info on about *.dep and *.rpm files.
-	- ksysv
-    	An editor for System V startup schemes.
+    		Editor for the cron command scheduler.
 	- kuser
    		An user manager.
-	- lilo-config
-    	A plugin for KControl to manage the Linux boot loader LILO.
-	- secpolicy
-    	A program to display PAM security policies.
+	- kde4-lilo
+	    	A plugin for KControl to manage the Linux boot loader LILO.
 
 %files
 %defattr(-,root,root)
@@ -200,7 +192,7 @@ Obsoletes: %name-kpackage
 Conflicts:  kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kpackage < 2:4.0.68
 Provides: kde4-kpackage = %epoch:%version
-Suggests: smart
+Requires: smart
 
 %description -n kpackage
 Kpackage is a package manager that is integrated into the K Desktop 
@@ -223,9 +215,9 @@ and Slackware tgz software packages.
 %prep
 %setup -q -n kdeadmin-%version
 %patch0 -p0
+
 %build
 %cmake_kde4 
-
 %make
 
 %install
@@ -239,4 +231,3 @@ install -m644 %SOURCE1 %buildroot/%_sysconfdir/pam.d/kpackage
 
 %clean
 rm -fr %buildroot
-
