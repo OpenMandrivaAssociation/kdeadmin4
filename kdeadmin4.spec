@@ -28,10 +28,11 @@ BuildRequires: kdepimlibs4-devel >= %version
 BuildRequires:	lilo
 %endif
 Obsoletes: ksysv
-Requires: kcron
-Requires: kuser
-Requires: kpackage
-Requires: knetworkconf 
+Requires:  kcron
+Requires:  kuser
+Requires:  kpackage
+Requires:  knetworkconf 
+Requires:  ksystemlog
 
 %description
 The kdeadmin package contains packages that usually only a system
