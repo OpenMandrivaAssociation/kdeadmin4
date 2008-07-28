@@ -1,11 +1,11 @@
 Name: kdeadmin4
 Version: 4.1.0
+Release: %mkrel 2
+Epoch: 2
+Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Summary: K Desktop Environment - Administrative Tools
 URL: http://www.kde.org
-Epoch: 2
-Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 License: GPL
