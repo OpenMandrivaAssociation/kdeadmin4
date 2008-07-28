@@ -7,7 +7,6 @@ URL: http://www.kde.org
 Epoch: 2
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
-Source1: kpackage.pamd
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 License: GPL
 Requires: pciutils
@@ -28,11 +27,10 @@ BuildRequires: kdepimlibs4-devel >= %version
 BuildRequires:	lilo
 %endif
 Obsoletes: ksysv
-Requires:  kcron
-Requires:  kuser
-Requires:  kpackage
-Requires:  knetworkconf 
-Requires:  ksystemlog
+Requires: kcron
+Requires: kuser
+Requires: knetworkconf 
+Requires: ksystemlog
 
 %description
 The kdeadmin package contains packages that usually only a system
@@ -47,14 +45,15 @@ administrator might need:
 %files
 %defattr(-,root,root)
 %doc README
+%exclude %_kde_docdir/*/*/kpackage
 
 #------------------------------------------------------------------------	
 
 %package -n kuser
-Group:      Graphical desktop/KDE
-Summary:    Users and groups manager
-Provides:   kuser4
-Conflicts:  kdeadmin4 < 2:4.0.1
+Group: Graphical desktop/KDE
+Summary:  Users and groups manager
+Provides: kuser4
+Conflicts: kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kuser < 2:4.0.68
 Provides: kde4-kuser = %epoch:%version
 
@@ -150,6 +149,7 @@ Linux machine.
 %defattr(-,root,root)
 %_kde_datadir/kde4/services/kcm_knetworkconfmodule.desktop
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
+%_kde_libdir/pkgconfig/system-tools-backends.pc
 %_kde_appsdir/knetworkconf
 %_kde_docdir/*/*/knetworkconf
 %_kde_iconsdir/*/*/*/knetworkconf*
@@ -186,49 +186,18 @@ used Linux boot loader.
 
 #------------------------------------------------------------------------	
 
-%package -n kpackage
-Group: Graphical desktop/KDE
-Summary:Manager for DEB, RPM
-Obsoletes: %name-kpackage
-Conflicts:  kdeadmin4 < 2:4.0.1
-Obsoletes: kde4-kpackage < 2:4.0.68
-Provides: kde4-kpackage = %epoch:%version
-Requires: smart
-
-%description -n kpackage
-Kpackage is a package manager that is integrated into the K Desktop 
-Environement. It works with the KDE File Manager to manage DEB, RPM 
-and Slackware tgz software packages.
-
-%files -n kpackage
-%defattr(-,root,root)
-%_kde_bindir/kpackage
-%config(noreplace) %_sysconfdir/pam.d/kpackage
-%_kde_iconsdir/*/*/*/kpackage*
-%_kde_datadir/applications/kde4/kpackage.desktop
-%_kde_datadir/config.kcfg/kpackageSettings.kcfg
-%_kde_appsdir/kpackage
-%_kde_docdir/*/*/kpackage
-%exclude %_kde_libdir/pkgconfig/system-tools-backends.pc
-
-#------------------------------------------------------------------------	
-
 %prep
 %setup -q -n kdeadmin-%version
 %patch0 -p0
 
 %build
-%cmake_kde4 
+%cmake_kde4 -DBUILD_kpackage=FALSE
 %make
 
 %install
 rm -fr %buildroot
 
 make -C build DESTDIR=%buildroot install
-
-# Install kdebase pam configuration file
-install -d %buildroot/%_sysconfdir/pam.d
-install -m644 %SOURCE1 %buildroot/%_sysconfdir/pam.d/kpackage
 
 %clean
 rm -fr %buildroot
