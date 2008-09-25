@@ -134,10 +134,10 @@ KSystemLog has the following features :
 #------------------------------------------------------------------------	
 
 %package -n knetworkconf
-Group:      Graphical desktop/KDE
-Summary:    KDE Control Center module to configure network
-Provides:   knetworkconf4
-Conflicts:  kdeadmin4 < 2:4.0.1
+Group: Graphical desktop/KDE
+Summary: KDE Control Center module to configure network
+Provides: knetworkconf4
+Conflicts: kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-knetworkconf < 2:4.0.68
 Provides: kde4-knetworkconf = %epoch:%version
 
@@ -151,12 +151,10 @@ Linux machine.
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
 %_kde_libdir/pkgconfig/system-tools-backends.pc
 %_kde_appsdir/knetworkconf
-%_kde_docdir/*/*/knetworkconf
+%_kde_docdir/*/*/kcontrol/knetworkconf
 %_kde_iconsdir/*/*/*/knetworkconf*
 %_kde_iconsdir/*/*/*/networ*
-%_kde_docdir/*/*/kcontrol/knetworkconf
 
-#------------------------------------------------------------------------	
 
 %ifarch %{ix86} x86_64
 %package -n kde4-lilo
@@ -185,8 +183,6 @@ used Linux boot loader.
 
 %endif
 
-#------------------------------------------------------------------------	
-
 %prep
 %setup -q -n kdeadmin-%version
 %patch0 -p0
@@ -202,3 +198,4 @@ make -C build DESTDIR=%buildroot install
 
 %clean
 rm -fr %buildroot
+
