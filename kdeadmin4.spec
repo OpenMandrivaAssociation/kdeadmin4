@@ -154,6 +154,7 @@ Linux machine.
 %_kde_docdir/*/*/knetworkconf
 %_kde_iconsdir/*/*/*/knetworkconf*
 %_kde_iconsdir/*/*/*/networ*
+%_kde_docdir/*/*/kcontrol/knetworkconf
 
 #------------------------------------------------------------------------	
 
