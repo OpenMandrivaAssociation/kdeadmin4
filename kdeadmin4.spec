@@ -1,5 +1,5 @@
 Name: kdeadmin4
-Version: 4.1.2
+Version: 4.1.70
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
@@ -8,6 +8,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
+Patch1:   kdeadmin-4.1.70-disable-kpackage-doc.patch
+Patch2:   kdeadmin-4.1.70-drop-unwanted-pkgconfig.patch
 License: GPL
 Requires: pciutils
 BuildRequires: X11-devel 
@@ -45,7 +47,6 @@ administrator might need:
 %files
 %defattr(-,root,root)
 %doc README
-%exclude %_kde_docdir/*/*/kpackage
 
 #------------------------------------------------------------------------	
 
@@ -132,7 +133,6 @@ KSystemLog has the following features :
 %_kde_docdir/*/*/ksystemlog
 
 #------------------------------------------------------------------------	
-
 %package -n knetworkconf
 Group: Graphical desktop/KDE
 Summary: KDE Control Center module to configure network
@@ -149,12 +149,12 @@ Linux machine.
 %defattr(-,root,root)
 %_kde_datadir/kde4/services/kcm_knetworkconfmodule.desktop
 %_kde_libdir/kde4/kcm_knetworkconfmodule.so
-%_kde_libdir/pkgconfig/system-tools-backends.pc
 %_kde_appsdir/knetworkconf
 %_kde_docdir/*/*/kcontrol/knetworkconf
 %_kde_iconsdir/*/*/*/knetworkconf*
 %_kde_iconsdir/*/*/*/networ*
 
+#------------------------------------------------------------------------
 
 %ifarch %{ix86} x86_64
 %package -n kde4-lilo
@@ -167,25 +167,25 @@ Conflicts:  kdeadmin4 < 2:4.0.1
 lilo-config is a kcontrol plugin for configuring LILO, the most commonly
 used Linux boot loader.
 
-%if %mdkversion < 200900
-%post -n kde4-lilo -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n kde4-lilo -p /sbin/ldconfig
-%endif
-
 %files -n kde4-lilo
 %defattr(-,root,root)
 %_kde_libdir/kde4/kcm_lilo.so
 %_kde_docdir/*/*/lilo-config
 %_kde_datadir/kde4/services/lilo.desktop
 
+%if %mdkversion < 200900
+%post -n kde4-lilo -p /sbin/ldconfig
+%postun -n kde4-lilo -p /sbin/ldconfig
 %endif
+%endif
+
+#------------------------------------------------------------------------
 
 %prep
 %setup -q -n kdeadmin-%version
 %patch0 -p0
+%patch1 -p0
+%patch2 -p0
 
 %build
 %cmake_kde4 -DBUILD_kpackage=FALSE
@@ -193,7 +193,6 @@ used Linux boot loader.
 
 %install
 rm -fr %buildroot
-
 make -C build DESTDIR=%buildroot install
 
 %clean
