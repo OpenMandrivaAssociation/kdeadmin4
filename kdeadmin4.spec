@@ -25,6 +25,8 @@ BuildRequires: pam-devel
 BuildRequires: libxml2-utils
 BuildRequires: kdelibs4-devel >= %version
 BuildRequires: kdepimlibs4-devel >= %version
+BuildRequires: python-kde4
+BuildRequires: python-qt4
 %ifarch %{ix86} x86_64
 BuildRequires:	lilo
 %endif
