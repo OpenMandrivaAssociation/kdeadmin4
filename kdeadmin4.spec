@@ -1,5 +1,5 @@
 Name: kdeadmin4
-Version: 4.1.71
+Version: 4.1.73
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
@@ -156,6 +156,31 @@ Linux machine.
 
 #------------------------------------------------------------------------
 
+%package system-config-printer-kde
+Summary: View current print jobs and configure new printers
+Group: Graphical desktop/KDE
+URL: http://utils.kde.org/projects/printer-applet
+Requires: %name-core = %version
+Requires: python-kde4 >= 1:4.1.0
+Requires: python-cups
+Requires: python-qt4
+Requires: python-dbus
+Requires: hal-cups-utils
+
+%description system-config-printer-kde
+Printer Applet is a system tray utility that shows current print jobs,
+shows printer warnings and errors and shows when printers that have
+been plugged in for the first time are being auto-configured by
+hal-cups-utils.
+
+%files system-config-printer-kde
+%defattr(-,root,root)
+%_kde_bindir/system-config-printer-kde
+%_kde_datadir/applications/kde4/system-config-printer-kde.desktop
+%_kde_appsdir/system-config-printer-kde
+
+#------------------------------------------------------------------------
+
 %ifarch %{ix86} x86_64
 %package -n kde4-lilo
 Group:      Graphical desktop/KDE
@@ -189,6 +214,7 @@ used Linux boot loader.
 
 %build
 %cmake_kde4 -DBUILD_kpackage=FALSE
+
 %make
 
 %install
