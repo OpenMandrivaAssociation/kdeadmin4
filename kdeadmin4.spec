@@ -27,6 +27,9 @@ BuildRequires: kdelibs4-devel >= %version
 BuildRequires: kdepimlibs4-devel >= %version
 BuildRequires: python-kde4
 BuildRequires: python-qt4
+BuildRequires: python-devel
+BuildRequires: python-cups
+BuildRequires: system-config-printer
 %ifarch %{ix86} x86_64
 BuildRequires:	lilo
 %endif
