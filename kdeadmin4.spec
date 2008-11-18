@@ -62,6 +62,7 @@ Provides: kuser4
 Conflicts: kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kuser < 2:4.0.68
 Provides: kde4-kuser = %epoch:%version
+Requires: kdebase4-runtime >= 1:%version 
 
 %description -n kuser
 Kuser is a tool to create, remove and modify user accounts and groups.
@@ -84,6 +85,7 @@ Provides:   kcron4
 Conflicts:  kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kcron < 2:4.0.68
 Provides: kde4-kcron = %epoch:%version
+Requires: kdebase4-runtime >= 1:%version
 
 %description -n kcron
 Kcron is a graphical frontend to the cron system, used to schedule regular 
@@ -101,6 +103,7 @@ tasks on a Unix system.
 Group:      Graphical desktop/KDE
 Summary:    System log viewer tool for KDE 4
 Provides:   ksystemlog4
+Requires: kdebase4-runtime >= 1:%version
 
 %description -n ksystemlog
 This program is developed for being used by beginner users,
@@ -145,6 +148,7 @@ Provides: knetworkconf4
 Conflicts: kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-knetworkconf < 2:4.0.68
 Provides: kde4-knetworkconf = %epoch:%version
+Requires: kdebase4-runtime >= 1:%version
 
 %description -n knetworkconf
 KNetworkConf is a KDE Control Center module to configure TCP/IP settings on a 
@@ -171,6 +175,7 @@ Requires: python-cups
 Requires: python-qt4
 Requires: python-dbus
 Requires: hal-cups-utils
+Requires: kdebase4-runtime >= 1:%version
 
 %description system-config-printer-kde
 Printer Applet is a system tray utility that shows current print jobs,
@@ -192,6 +197,7 @@ Group:      Graphical desktop/KDE
 Summary:    Configure lilo
 Obsoletes:  %name-lilo
 Conflicts:  kdeadmin4 < 2:4.0.1
+Requires: kdebase4-runtime >= 1:%version
 
 %description -n kde4-lilo
 lilo-config is a kcontrol plugin for configuring LILO, the most commonly
