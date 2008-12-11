@@ -1,5 +1,5 @@
 Name: kdeadmin4
-Version: 4.1.81
+Version: 4.1.82
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
