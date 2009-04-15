@@ -1,6 +1,9 @@
+%define with_printer_applet 0
+%{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
+
 Name: kdeadmin4
 Version: 4.2.2
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
@@ -29,7 +32,9 @@ BuildRequires: python-kde4
 BuildRequires: python-qt4
 BuildRequires: python-devel
 BuildRequires: python-cups
+%if %with_printer_applet
 BuildRequires: system-config-printer
+%endif
 %ifarch %{ix86} x86_64
 BuildRequires:	lilo
 %endif
@@ -164,7 +169,7 @@ Linux machine.
 %_kde_iconsdir/*/*/*/networ*
 
 #------------------------------------------------------------------------
-
+%if %with_printer_applet
 %package system-config-printer-kde
 Summary: View current print jobs and configure new printers
 Group: Graphical desktop/KDE
@@ -188,7 +193,7 @@ hal-cups-utils.
 %_kde_bindir/system-config-printer-kde
 %_kde_datadir/applications/kde4/system-config-printer-kde.desktop
 %_kde_appsdir/system-config-printer-kde
-
+%endif
 #------------------------------------------------------------------------
 
 %ifarch %{ix86} x86_64
