@@ -3,7 +3,7 @@
 
 Name: kdeadmin4
 Version: 4.2.2
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
@@ -33,7 +33,9 @@ BuildRequires: python-qt4
 BuildRequires: python-devel
 BuildRequires: python-cups
 %if %with_printer_applet
-BuildRequires: system-config-printer
+BuildRequires: system-config-printer-libs
+%else
+BuildConflicts: system-config-printer-libs
 %endif
 %ifarch %{ix86} x86_64
 BuildRequires:	lilo
