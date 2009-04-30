@@ -1,15 +1,17 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
+%define kderevision svn954171
+
 Name: kdeadmin4
-Version: 4.2.2
-Release: %mkrel 3
+Version: 4.2.70
+Release: %mkrel 0.%kderevision.1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.%kderevision.tar.bz2
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 Patch1:   kdeadmin-4.1.70-disable-kpackage-doc.patch
 Patch2:   kdeadmin-4.1.70-drop-unwanted-pkgconfig.patch
@@ -41,10 +43,10 @@ BuildConflicts: system-config-printer-libs
 BuildRequires:	lilo
 %endif
 Obsoletes: ksysv
-Requires: kcron
-Requires: kuser
-Requires: knetworkconf 
-Requires: ksystemlog
+Suggests: kcron
+Suggests: kuser
+Suggests: knetworkconf 
+Suggests: ksystemlog
 
 %description
 The kdeadmin package contains packages that usually only a system
@@ -216,16 +218,12 @@ used Linux boot loader.
 %_kde_docdir/*/*/lilo-config
 %_kde_datadir/kde4/services/lilo.desktop
 
-%if %mdkversion < 200900
-%post -n kde4-lilo -p /sbin/ldconfig
-%postun -n kde4-lilo -p /sbin/ldconfig
-%endif
 %endif
 
 #------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdeadmin-%version
+%setup -q -n kdeadmin-%version.%kderevision
 %patch0 -p0
 %patch1 -p0
 %patch2 -p0
