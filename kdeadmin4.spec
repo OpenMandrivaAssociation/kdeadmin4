@@ -145,7 +145,6 @@ KSystemLog has the following features :
 %defattr(-,root,root)
 %_kde_bindir/ksystemlog
 %_kde_appsdir/ksystemlog
-#%_kde_iconsdir/hicolor/*/apps/ksystemlog.*
 %_kde_datadir/applications/kde4/ksystemlog.desktop
 %_kde_docdir/*/*/ksystemlog
 
