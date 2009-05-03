@@ -1,10 +1,10 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define kderevision svn954171
+%define kderevision svn961800
 
 Name: kdeadmin4
-Version: 4.2.70
+Version: 4.2.71
 Release: %mkrel 0.%kderevision.1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
