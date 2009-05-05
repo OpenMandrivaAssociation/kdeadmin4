@@ -14,7 +14,6 @@ URL: http://www.kde.org
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.%kderevision.tar.bz2
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 Patch1:   kdeadmin-4.1.70-disable-kpackage-doc.patch
-Patch2:   kdeadmin-4.1.70-drop-unwanted-pkgconfig.patch
 License: GPL
 Requires: pciutils
 BuildRequires: X11-devel 
@@ -225,7 +224,6 @@ used Linux boot loader.
 %setup -q -n kdeadmin-%version.%kderevision
 %patch0 -p0
 %patch1 -p0
-#patch2 -p0
 
 %build
 %cmake_kde4 -DBUILD_kpackage=FALSE
