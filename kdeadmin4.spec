@@ -4,14 +4,14 @@
 %define kderevision svn961800
 
 Name: kdeadmin4
-Version: 4.2.71
-Release: %mkrel 0.%kderevision.1
+Version: 4.2.85
+Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.%kderevision.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 Patch1:   kdeadmin-4.1.70-disable-kpackage-doc.patch
 License: GPL
@@ -221,7 +221,7 @@ used Linux boot loader.
 #------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdeadmin-%version.%kderevision
+%setup -q -n kdeadmin-%version
 %patch0 -p0
 %patch1 -p0
 
