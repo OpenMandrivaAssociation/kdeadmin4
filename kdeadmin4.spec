@@ -1,17 +1,26 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define kderevision svn961800
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
+%if %branch
+%define kderevision svn969966
+%endif
 
 Name: kdeadmin4
-Version: 4.2.85
+Version: 4.2.87
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
+%if %branch
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version%kderevision.tar.bz2
+%else
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
+%endif
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 Patch1:   kdeadmin-4.1.70-disable-kpackage-doc.patch
 License: GPL
@@ -221,7 +230,12 @@ used Linux boot loader.
 #------------------------------------------------------------------------
 
 %prep
+%if %branch
+%setup -q -n kdeadmin-%version%kderevision
+%else
 %setup -q -n kdeadmin-%version
+%endif
+
 %patch0 -p0
 %patch1 -p0
 
