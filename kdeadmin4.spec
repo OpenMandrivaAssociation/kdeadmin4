@@ -1,26 +1,15 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kderevision svn973768
-%endif
-
 Name: kdeadmin4
-Version: 4.2.96
+Version: 4.2.98
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
-%if %branch
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version%kderevision.tar.bz2
-%else
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
-%endif
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 Patch1:   kdeadmin-4.1.70-disable-kpackage-doc.patch
 License: GPL
@@ -36,8 +25,9 @@ BuildRequires: rpm-devel
 BuildRequires: libz-devel
 BuildRequires: pam-devel
 BuildRequires: libxml2-utils
-BuildRequires: kdelibs4-devel >= %version
-BuildRequires: kdepimlibs4-devel >= %version
+BuildRequires: kdelibs4-devel >= 2:4.2.98
+BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
+BuildRequires: kdepimlibs4-devel >= 4.2.98
 BuildRequires: python-kde4
 BuildRequires: python-qt4
 BuildRequires: python-devel
@@ -230,12 +220,7 @@ used Linux boot loader.
 #------------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdeadmin-%version%kderevision
-%else
 %setup -q -n kdeadmin-%version
-%endif
-
 %patch0 -p0
 %patch1 -p0
 
@@ -246,7 +231,7 @@ used Linux boot loader.
 
 %install
 rm -fr %buildroot
-make -C build DESTDIR=%buildroot install
+%makeinstall_std -C build
 
 %clean
 rm -fr %buildroot
