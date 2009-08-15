@@ -3,7 +3,7 @@
 
 Name: kdeadmin4
 Version: 4.3.0
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
@@ -45,6 +45,12 @@ Suggests: kcron
 Suggests: kuser
 Suggests: knetworkconf 
 Suggests: ksystemlog
+
+%if %mdkversion >= 201000
+Obsoletes:    kdeadmin < 2:3.5.10-2
+Obsoletes:    kdeadmin-kpackage < 2:3.5.10-2
+Obsoletes:    kdeadmin-ksysv < 2:3.5.10-2
+%endif
 
 %description
 The kdeadmin package contains packages that usually only a system
@@ -203,8 +209,10 @@ Group:      Graphical desktop/KDE
 Summary:    Configure lilo
 Obsoletes:  %name-lilo
 Conflicts:  kdeadmin4 < 2:4.0.1
-Requires: kdebase4-runtime >= 1:%version
-
+Requires:   kdebase4-runtime >= 1:%version
+%if %mdkversion >= 201000
+Obsoletes:    kdeadmin-lilo < 2:3.5.10-2
+%endif
 %description -n kde4-lilo
 lilo-config is a kcontrol plugin for configuring LILO, the most commonly
 used Linux boot loader.
