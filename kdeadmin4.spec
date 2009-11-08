@@ -1,17 +1,18 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
+%define kde_snapshot svn1040395
+
 Name: kdeadmin4
-Version: 4.3.2
+Version: 4.3.73
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version%kde_snapshot.tar.bz2
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
-Patch1:   kdeadmin-4.1.70-disable-kpackage-doc.patch
 License: GPL
 Requires: pciutils
 BuildRequires: X11-devel 
@@ -228,9 +229,8 @@ used Linux boot loader.
 #------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdeadmin-%version
+%setup -q -n kdeadmin-%version%kde_snapshot
 %patch0 -p0
-%patch1 -p0
 
 %build
 %cmake_kde4 -DBUILD_kpackage=FALSE
