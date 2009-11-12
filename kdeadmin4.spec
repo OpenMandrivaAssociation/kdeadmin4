@@ -5,7 +5,7 @@
 
 Name: kdeadmin4
 Version: 4.3.73
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
