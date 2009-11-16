@@ -1,11 +1,11 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define kde_snapshot svn1040395
+%define kde_snapshot svn1048496
 
 Name: kdeadmin4
-Version: 4.3.73
-Release: %mkrel 2
+Version: 4.3.75
+Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
