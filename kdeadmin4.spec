@@ -1,17 +1,27 @@
 %define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define kde_snapshot svn1048496
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
+
+%if %branch
+%define kde_snapshot svn1053190
+%endif
 
 Name: kdeadmin4
-Version: 4.3.75
+Version: 4.3.77
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
+%if %branch
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version%kde_snapshot.tar.bz2
+%else
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
+%endif
 Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 License: GPL
 Requires: pciutils
@@ -229,7 +239,11 @@ used Linux boot loader.
 #------------------------------------------------------------------------
 
 %prep
+%if %branch
 %setup -q -n kdeadmin-%version%kde_snapshot
+%else
+%setup -q -n kdeadmin-%version
+%endif
 %patch0 -p0
 
 %build
