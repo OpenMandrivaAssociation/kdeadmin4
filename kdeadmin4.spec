@@ -10,7 +10,7 @@
 %endif
 
 Name: kdeadmin4
-Version: 4.3.80
+Version: 4.3.85
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
