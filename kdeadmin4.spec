@@ -247,7 +247,7 @@ used Linux boot loader.
 %patch0 -p0
 
 %build
-%cmake_kde4
+%cmake_kde4 -DBUILD_kpackage=FALSE
 %make
 
 %install
