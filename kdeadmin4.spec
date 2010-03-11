@@ -48,9 +48,6 @@ BuildRequires: system-config-printer-libs
 %else
 BuildConflicts: system-config-printer-libs
 %endif
-%ifarch %{ix86} x86_64
-BuildRequires:	lilo
-%endif
 Obsoletes: ksysv
 Suggests: kcron
 Suggests: kuser
@@ -70,8 +67,6 @@ administrator might need:
     		Editor for the cron command scheduler.
 	- kuser
    		An user manager.
-	- kde4-lilo
-	    	A plugin for KControl to manage the Linux boot loader LILO.
 
 %files
 %defattr(-,root,root)
@@ -164,6 +159,7 @@ KSystemLog has the following features :
 %_kde_docdir/*/*/ksystemlog
 
 #------------------------------------------------------------------------	
+
 %package -n knetworkconf
 Group: Graphical desktop/KDE
 Summary: KDE Control Center module to configure network
@@ -212,30 +208,6 @@ hal-cups-utils.
 %_kde_datadir/applications/kde4/system-config-printer-kde.desktop
 %_kde_appsdir/system-config-printer-kde
 %endif
-#------------------------------------------------------------------------
-
-%ifarch %{ix86} x86_64
-%package -n kde4-lilo
-Group:      Graphical desktop/KDE
-Summary:    Configure lilo
-Obsoletes:  %name-lilo
-Conflicts:  kdeadmin4 < 2:4.0.1
-Requires:   kdebase4-runtime >= 1:%version
-%if %mdkversion >= 201000
-Obsoletes:    kdeadmin-lilo < 2:3.5.10-2
-%endif
-%description -n kde4-lilo
-lilo-config is a kcontrol plugin for configuring LILO, the most commonly
-used Linux boot loader.
-
-%files -n kde4-lilo
-%defattr(-,root,root)
-%_kde_libdir/kde4/kcm_lilo.so
-%_kde_docdir/*/*/lilo-config
-%_kde_datadir/kde4/services/lilo.desktop
-
-%endif
-
 #------------------------------------------------------------------------
 
 %prep
