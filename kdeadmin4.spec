@@ -32,7 +32,6 @@ BuildRequires: jpeg-devel
 BuildRequires: lcms-devel 
 BuildRequires: mng-devel
 BuildRequires: png-devel 
-BuildRequires: rpm-devel 
 BuildRequires: libz-devel
 BuildRequires: pam-devel
 BuildRequires: libxml2-utils
@@ -193,7 +192,7 @@ Requires: python-kde4 >= 1:4.1.0
 Requires: python-cups
 Requires: python-qt4
 Requires: python-dbus
-Requires: hal-cups-utils
+Requires: printer-applet
 Requires: kdebase4-runtime >= 1:%version
 
 %description system-config-printer-kde
@@ -204,8 +203,7 @@ hal-cups-utils.
 
 %files system-config-printer-kde
 %defattr(-,root,root)
-%_kde_bindir/system-config-printer-kde
-%_kde_datadir/applications/kde4/system-config-printer-kde.desktop
+%_kde_datadir/kde4/services/system-config-printer-kde.desktop
 %_kde_appsdir/system-config-printer-kde
 %endif
 #------------------------------------------------------------------------
