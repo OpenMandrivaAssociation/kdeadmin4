@@ -1,4 +1,4 @@
-%define with_printer_applet 0
+%define with_printer_applet 1
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 %define branch 0
@@ -183,7 +183,7 @@ Linux machine.
 
 #------------------------------------------------------------------------
 %if %with_printer_applet
-%package system-config-printer-kde
+%package -n system-config-printer-kde
 Summary: View current print jobs and configure new printers
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/printer-applet
@@ -195,13 +195,13 @@ Requires: python-dbus
 Requires: printer-applet
 Requires: kdebase4-runtime >= 1:%version
 
-%description system-config-printer-kde
+%description -n system-config-printer-kde
 Printer Applet is a system tray utility that shows current print jobs,
 shows printer warnings and errors and shows when printers that have
 been plugged in for the first time are being auto-configured by
 hal-cups-utils.
 
-%files system-config-printer-kde
+%files -n system-config-printer-kde
 %defattr(-,root,root)
 %_kde_datadir/kde4/services/system-config-printer-kde.desktop
 %_kde_appsdir/system-config-printer-kde
