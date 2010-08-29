@@ -1,4 +1,4 @@
-%define with_printer_applet 1
+%define with_printer_applet 0
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 %define branch 0
@@ -11,7 +11,7 @@
 
 Name: kdeadmin4
 Version: 4.5.0
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
