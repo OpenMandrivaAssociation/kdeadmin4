@@ -1,17 +1,17 @@
-%define with_printer_applet 0
+%define with_printer_applet 1
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define branch 0
+%define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
 
 %if %branch
-%define kde_snapshot svn1138650
+%define kde_snapshot svn1165394
 %endif
 
 Name: kdeadmin4
-Version: 4.5.0
-Release: %mkrel 2
+Version: 4.5.65
+Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
@@ -22,7 +22,6 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version%kde_snap
 %else
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 %endif
-Patch0:   kdeadmin-4.0.84-fix-menu-entries.patch
 License: GPL
 Requires: pciutils
 BuildRequires: X11-devel 
@@ -214,7 +213,6 @@ hal-cups-utils.
 %else
 %setup -q -n kdeadmin-%version
 %endif
-%patch0 -p0
 
 %build
 %cmake_kde4 
