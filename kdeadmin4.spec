@@ -49,7 +49,6 @@ BuildConflicts: system-config-printer-libs
 Obsoletes: ksysv
 Suggests: kcron
 Suggests: kuser
-Suggests: knetworkconf 
 Suggests: ksystemlog
 
 %if %mdkversion >= 201000
@@ -158,29 +157,6 @@ KSystemLog has the following features :
 
 #------------------------------------------------------------------------	
 
-%package -n knetworkconf
-Group: Graphical desktop/KDE
-Summary: KDE Control Center module to configure network
-Provides: knetworkconf4
-Conflicts: kdeadmin4 < 2:4.0.1
-Obsoletes: kde4-knetworkconf < 2:4.0.68
-Provides: kde4-knetworkconf = %epoch:%version
-Requires: kdebase4-runtime >= 1:%version
-
-%description -n knetworkconf
-KNetworkConf is a KDE Control Center module to configure TCP/IP settings on a 
-Linux machine.
-
-%files -n knetworkconf
-%defattr(-,root,root)
-%_kde_datadir/kde4/services/kcm_knetworkconfmodule.desktop
-%_kde_libdir/kde4/kcm_knetworkconfmodule.so
-%_kde_appsdir/knetworkconf
-%_kde_docdir/*/*/kcontrol/knetworkconf
-%_kde_iconsdir/*/*/*/knetworkconf*
-%_kde_iconsdir/*/*/*/networ*
-
-#------------------------------------------------------------------------
 %if %with_printer_applet
 %package -n system-config-printer-kde
 Summary: View current print jobs and configure new printers
