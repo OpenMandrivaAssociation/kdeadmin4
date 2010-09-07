@@ -6,11 +6,11 @@
 
 
 %if %branch
-%define kde_snapshot svn1165394
+%define kde_snapshot svn1170578
 %endif
 
 Name: kdeadmin4
-Version: 4.5.65
+Version: 4.5.67
 Release: %mkrel 1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
