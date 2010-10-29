@@ -5,37 +5,27 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1174542
+%define kde_snapshot svn1190490
 %endif
 
 Name: kdeadmin4
-Version: 4.5.68
-Release: %mkrel 1
+Version: 4.5.74
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
 %if %branch
+Release: %mkrel -c %kde_snapshot 1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeadmin-%version%kde_snapshot.tar.bz2
 %else
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 %endif
 License: GPL
 Requires: pciutils
-BuildRequires: X11-devel 
-BuildRequires: freetype2-devel 
-BuildRequires: bzip2-devel 
-BuildRequires: jpeg-devel 
-BuildRequires: lcms-devel 
-BuildRequires: mng-devel
-BuildRequires: png-devel 
-BuildRequires: libz-devel
-BuildRequires: pam-devel
-BuildRequires: libxml2-utils
-BuildRequires: kdelibs4-devel >= 2:4.2.98
-BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
-BuildRequires: kdepimlibs4-devel >= 4.2.98
+BuildRequires: kdelibs4-devel
+BuildRequires: kdepimlibs4-devel
 BuildRequires: python-kde4
 BuildRequires: python-qt4
 BuildRequires: python-devel
@@ -77,7 +67,6 @@ Provides: kuser4
 Conflicts: kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kuser < 2:4.0.68
 Provides: kde4-kuser = %epoch:%version
-Requires: kdebase4-runtime >= 1:%version 
 
 %description -n kuser
 Kuser is a tool to create, remove and modify user accounts and groups.
@@ -100,7 +89,6 @@ Provides:   kcron4
 Conflicts:  kdeadmin4 < 2:4.0.1
 Obsoletes: kde4-kcron < 2:4.0.68
 Provides: kde4-kcron = %epoch:%version
-Requires: kdebase4-runtime >= 1:%version
 
 %description -n kcron
 Kcron is a graphical frontend to the cron system, used to schedule regular 
@@ -118,7 +106,6 @@ tasks on a Unix system.
 Group:      Graphical desktop/KDE
 Summary:    System log viewer tool for KDE 4
 Provides:   ksystemlog4
-Requires: kdebase4-runtime >= 1:%version
 
 %description -n ksystemlog
 This program is developed for being used by beginner users,
@@ -164,10 +151,8 @@ URL: http://utils.kde.org/projects/printer-applet
 Requires: %name-core = %version
 Requires: python-kde4 >= 1:4.1.0
 Requires: python-cups
-Requires: python-qt4
 Requires: python-dbus
 Requires: printer-applet
-Requires: kdebase4-runtime >= 1:%version
 
 %description -n system-config-printer-kde
 Printer Applet is a system tray utility that shows current print jobs,
