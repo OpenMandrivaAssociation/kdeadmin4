@@ -148,7 +148,6 @@ KSystemLog has the following features :
 Summary: View current print jobs and configure new printers
 Group: Graphical desktop/KDE
 URL: http://utils.kde.org/projects/printer-applet
-Requires: %name-core = %version
 Requires: python-kde4 >= 1:4.1.0
 Requires: python-cups
 Requires: python-dbus
