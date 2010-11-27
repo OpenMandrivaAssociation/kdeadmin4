@@ -1,7 +1,7 @@
 %define with_printer_applet 1
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
@@ -9,7 +9,7 @@
 %endif
 
 Name: kdeadmin4
-Version: 4.5.77
+Version: 4.5.80
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
@@ -26,7 +26,7 @@ License: GPL
 Requires: pciutils
 BuildRequires: kdelibs4-devel
 BuildRequires: kdepimlibs4-devel
-BuildRequires: python-kde4
+BuildRequires: python-kde4-devel
 BuildRequires: python-qt4
 BuildRequires: python-devel
 BuildRequires: python-cups
