@@ -9,7 +9,7 @@
 %endif
 
 Name: kdeadmin4
-Version: 4.6.0
+Version: 4.6.1
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
