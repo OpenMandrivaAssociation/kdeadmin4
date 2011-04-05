@@ -16,10 +16,10 @@ Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
 %if %branch
-Release: %mkrel -c %kde_snapshot 1
+Release: 0.%kde_snapshot.1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeadmin-%version%kde_snapshot.tar.bz2
 %else
-Release: %mkrel 1
+Release: 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
 %endif
 License: GPL
