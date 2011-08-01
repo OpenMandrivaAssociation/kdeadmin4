@@ -1,27 +1,15 @@
 %define with_printer_applet 1
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kde_snapshot svn1198704
-%endif
-
 Name: kdeadmin4
-Version: 4.6.4
+Version: 4.7.40
 Epoch: 2
 Summary: K Desktop Environment - Administrative Tools
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.kde.org
-%if %branch
-Release: 0.%kde_snapshot.1
-Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeadmin-%version%kde_snapshot.tar.bz2
-%else
 Release: 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeadmin-%version.tar.bz2
-%endif
 License: GPL
 Requires: pciutils
 BuildRequires: kdelibs4-devel
@@ -39,12 +27,6 @@ Obsoletes: ksysv
 Suggests: kcron
 Suggests: kuser
 Suggests: ksystemlog
-
-%if %mdkversion >= 201000
-Obsoletes:    kdeadmin < 2:3.5.10-2
-Obsoletes:    kdeadmin-kpackage < 2:3.5.10-2
-Obsoletes:    kdeadmin-ksysv < 2:3.5.10-2
-%endif
 
 %description
 The kdeadmin package contains packages that usually only a system
@@ -167,11 +149,7 @@ hal-cups-utils.
 #------------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdeadmin-%version%kde_snapshot
-%else
 %setup -q -n kdeadmin-%version
-%endif
 
 %build
 %cmake_kde4 
