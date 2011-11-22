@@ -23,6 +23,7 @@ BuildRequires: system-config-printer-libs
 %else
 BuildConflicts: system-config-printer-libs
 %endif
+BuildRequires:  automoc4
 Obsoletes: ksysv
 Suggests: kcron
 Suggests: kuser
