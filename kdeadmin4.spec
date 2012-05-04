@@ -2,12 +2,12 @@
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name:		kdeadmin4
-Version:	4.8.2
+Version: 4.8.3
 Epoch:		2
 Summary:	K Desktop Environment - Administrative Tools
 Group:		Graphical desktop/KDE
 URL:		http://www.kde.org
-Release:	1
+Release: 1
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeadmin-%{version}.tar.xz
 License:	GPL
 Requires:	pciutils
