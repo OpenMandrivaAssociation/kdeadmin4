@@ -140,6 +140,7 @@ hal-cups-utils.
 %files -n system-config-printer-kde
 %{_kde_datadir}/kde4/services/system-config-printer-kde.desktop
 %{_kde_appsdir}/system-config-printer-kde
+%{_kde_docdir}/*/*/system-config-printer-kde
 %endif
 #------------------------------------------------------------------------
 
