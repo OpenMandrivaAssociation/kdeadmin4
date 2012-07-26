@@ -2,12 +2,12 @@
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name:		kdeadmin4
-Version: 4.8.97
+Version:	4.8.97
+Release:	1
 Epoch:		2
 Summary:	K Desktop Environment - Administrative Tools
 Group:		Graphical desktop/KDE
 URL:		http://www.kde.org
-Release: 1
 Source:		ftp://ftp.kde.org/pub/kde/unstable/%{version}/src/kdeadmin-%{version}.tar.xz
 License:	GPL
 Requires:	pciutils
@@ -17,13 +17,12 @@ BuildRequires:	python-kde4-devel
 BuildRequires:	python-qt4
 BuildRequires:	python-devel
 BuildRequires:	python-cups
-%if %with_printer_applet
+%if %{with_printer_applet}
 BuildRequires:	system-config-printer-libs
 %else
 BuildConflicts:	system-config-printer-libs
 %endif
 BuildRequires:	automoc4
-Obsoletes:	ksysv
 Suggests:	kcron
 Suggests:	kuser
 Suggests:	ksystemlog
@@ -32,9 +31,9 @@ Suggests:	ksystemlog
 The kdeadmin package contains packages that usually only a system
 administrator might need:
 	- kcron
-    		Editor for the cron command scheduler.
+		Editor for the cron command scheduler.
 	- kuser
-   		An user manager.
+		An user manager.
 
 %files
 %doc README
@@ -45,8 +44,6 @@ administrator might need:
 Group:		Graphical desktop/KDE
 Summary:	Users and groups manager
 Provides:	kuser4
-Conflicts:	kdeadmin4 < 2:4.0.1
-Obsoletes:	kde4-kuser < 2:4.0.68
 Provides:	kde4-kuser = %{EVRD}
 
 %description -n kuser
@@ -54,8 +51,8 @@ Kuser is a tool to create, remove and modify user accounts and groups.
 
 %files -n kuser
 %{_kde_bindir}/kuser
-%{_kde_datadir}/applications/kde4/kuser.desktop
-%{_kde_datadir}/apps/kuser
+%{_kde_applicationsdir}/kuser.desktop
+%{_kde_appsdir}/kuser
 %{_kde_datadir}/config.kcfg/kuser.kcfg
 %{_kde_docdir}/*/*/kuser
 %{_kde_iconsdir}/*/*/*/kuser*
@@ -66,8 +63,6 @@ Kuser is a tool to create, remove and modify user accounts and groups.
 Group:		Graphical desktop/KDE
 Summary:	Graphical task scheduler
 Provides:	kcron4
-Conflicts:	kdeadmin4 < 2:4.0.1
-Obsoletes:	kde4-kcron < 2:4.0.68
 Provides:	kde4-kcron = %{EVRD}
 
 %description -n kcron
@@ -75,7 +70,7 @@ Kcron is a graphical frontend to the cron system, used to schedule regular
 tasks on a Unix system.
 
 %files -n kcron
-%{_kde_datadir}/kde4/services/kcm_cron.desktop
+%{_kde_services}/kcm_cron.desktop
 %{_kde_libdir}/kde4/kcm_cron.so
 %{_kde_docdir}/*/*/kcron
 
@@ -116,7 +111,7 @@ KSystemLog has the following features :
 %files -n ksystemlog
 %{_kde_bindir}/ksystemlog
 %{_kde_appsdir}/ksystemlog
-%{_kde_datadir}/applications/kde4/ksystemlog.desktop
+%{_kde_applicationsdir}/ksystemlog.desktop
 %{_kde_docdir}/*/*/ksystemlog
 
 #------------------------------------------------------------------------
@@ -126,7 +121,7 @@ KSystemLog has the following features :
 Summary:	View current print jobs and configure new printers
 Group:		Graphical desktop/KDE
 URL:		http://utils.kde.org/projects/printer-applet
-Requires:	python-kde4 >= 1:4.1.0
+Requires:	python-kde4
 Requires:	python-cups
 Requires:	python-dbus
 Requires:	kdeutils4-printer-applet
@@ -138,7 +133,7 @@ been plugged in for the first time are being auto-configured by
 hal-cups-utils.
 
 %files -n system-config-printer-kde
-%{_kde_datadir}/kde4/services/system-config-printer-kde.desktop
+%{_kde_services}/system-config-printer-kde.desktop
 %{_kde_appsdir}/system-config-printer-kde
 %{_kde_docdir}/*/*/system-config-printer-kde
 %endif
@@ -152,9 +147,6 @@ hal-cups-utils.
 %make
 
 %install
-%__rm -fr %{buildroot}
+rm -fr %{buildroot}
 %makeinstall_std -C build
-
-%clean
-%__rm -fr %{buildroot}
 
