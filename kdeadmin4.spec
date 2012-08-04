@@ -2,8 +2,8 @@
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name:		kdeadmin4
-Version:	4.8.97
-Release:	1
+Version: 4.9.0
+Release: 1
 Epoch:		2
 Summary:	K Desktop Environment - Administrative Tools
 Group:		Graphical desktop/KDE
