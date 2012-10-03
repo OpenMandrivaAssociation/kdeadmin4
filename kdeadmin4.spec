@@ -2,7 +2,7 @@
 %{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
 
 Name:		kdeadmin4
-Version: 4.9.0
+Version: 4.9.2
 Release: 1
 Epoch:		2
 Summary:	K Desktop Environment - Administrative Tools
