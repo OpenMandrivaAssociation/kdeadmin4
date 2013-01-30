@@ -1,14 +1,17 @@
-%define with_printer_applet 1
-%{?_with_printer_applet: %{expand: %%global with_printer_applet 1}}
-
 Name:		kdeadmin4
-Version:	4.9.4
+Version:	4.9.98
 Release:	1
 Epoch:		2
 Summary:	K Desktop Environment - Administrative Tools
 Group:		Graphical desktop/KDE
 URL:		http://www.kde.org
-Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeadmin-%{version}.tar.xz
+%define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
+%if %is_beta
+%define ftpdir unstable
+%else
+%define ftpdir stable
+%endif
+Source:		ftp://ftp.kde.org/pub/kde/%ftpdir/%{version}/src/kdeadmin-%{version}.tar.xz
 License:	GPL
 Requires:	pciutils
 BuildRequires:	kdelibs4-devel
@@ -17,12 +20,6 @@ BuildRequires:	python-kde4-devel
 BuildRequires:	python-qt4
 BuildRequires:	python-devel
 BuildRequires:	python-cups
-%if %{with_printer_applet}
-BuildRequires:	system-config-printer-libs
-BuildRequires:	system-config-printer
-%else
-BuildConflicts:	system-config-printer-libs
-%endif
 BuildRequires:	automoc4
 Suggests:	kcron
 Suggests:	kuser
@@ -115,29 +112,6 @@ KSystemLog has the following features :
 %{_kde_applicationsdir}/ksystemlog.desktop
 %{_kde_docdir}/*/*/ksystemlog
 
-#------------------------------------------------------------------------
-
-%if %{with_printer_applet}
-%package -n system-config-printer-kde
-Summary:	View current print jobs and configure new printers
-Group:		Graphical desktop/KDE
-URL:		http://utils.kde.org/projects/printer-applet
-Requires:	python-kde4
-Requires:	python-cups
-Requires:	python-dbus
-Requires:	kdeutils4-printer-applet
-
-%description -n system-config-printer-kde
-Printer Applet is a system tray utility that shows current print jobs,
-shows printer warnings and errors and shows when printers that have
-been plugged in for the first time are being auto-configured by
-hal-cups-utils.
-
-%files -n system-config-printer-kde
-%{_kde_services}/system-config-printer-kde.desktop
-%{_kde_appsdir}/system-config-printer-kde
-%{_kde_docdir}/*/*/system-config-printer-kde
-%endif
 #------------------------------------------------------------------------
 
 %prep
