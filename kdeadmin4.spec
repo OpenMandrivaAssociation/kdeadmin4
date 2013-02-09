@@ -1,17 +1,17 @@
 Name:		kdeadmin4
-Version:	4.9.98
+Version:	4.10.0
 Release:	1
 Epoch:		2
 Summary:	K Desktop Environment - Administrative Tools
 Group:		Graphical desktop/KDE
 URL:		http://www.kde.org
 %define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %is_beta
+%if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Source:		ftp://ftp.kde.org/pub/kde/%ftpdir/%{version}/src/kdeadmin-%{version}.tar.xz
+Source:		ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdeadmin-%{version}.tar.xz
 License:	GPL
 Requires:	pciutils
 BuildRequires:	kdelibs4-devel
@@ -125,6 +125,10 @@ KSystemLog has the following features :
 %makeinstall_std -C build
 
 %changelog
+* Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.0-1
+- New version 4.10.0
+- Drop system-config-printer-kde which is replaced by print-manager in upstream
+
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.9.4-1
 - New version 4.9.4
 
