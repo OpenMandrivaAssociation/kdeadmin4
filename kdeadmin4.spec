@@ -1,5 +1,5 @@
 Name:		kdeadmin4
-Version:	4.10.0
+Version:	4.10.1
 Release:	1
 Epoch:		2
 Summary:	K Desktop Environment - Administrative Tools
@@ -125,6 +125,9 @@ KSystemLog has the following features :
 %makeinstall_std -C build
 
 %changelog
+* Sat Mar 09 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.1-1
+- New version 4.10.1
+
 * Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.0-1
 - New version 4.10.0
 - Drop system-config-printer-kde which is replaced by print-manager in upstream
