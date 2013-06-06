@@ -1,18 +1,18 @@
+Summary:	K Desktop Environment - Administrative Tools
 Name:		kdeadmin4
-Version:	4.10.3
+Version:	4.10.4
 Release:	1
 Epoch:		2
-Summary:	K Desktop Environment - Administrative Tools
+License:	GPL
 Group:		Graphical desktop/KDE
-URL:		http://www.kde.org
-%define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
+Url:		http://www.kde.org
+%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
 Source:		ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdeadmin-%{version}.tar.xz
-License:	GPL
 Requires:	pciutils
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdepimlibs4-devel
@@ -125,6 +125,9 @@ KSystemLog has the following features :
 %makeinstall_std -C build
 
 %changelog
+* Wed Jun 05 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.4-1
+- New version 4.10.4
+
 * Tue May 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.3-1
 - New version 4.10.3
 
