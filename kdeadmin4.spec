@@ -12,8 +12,7 @@ Url:		http://www.kde.org
 %else
 %define ftpdir stable
 %endif
-Source:		ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdeadmin-%{version}.tar.xz
-Requires:	pciutils
+Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdeadmin-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdepimlibs4-devel
 BuildRequires:	python-kde4-devel
@@ -21,6 +20,7 @@ BuildRequires:	python-qt4
 BuildRequires:	python-devel
 BuildRequires:	python-cups
 BuildRequires:	automoc4
+Requires:	pciutils
 Suggests:	kcron
 Suggests:	kuser
 Suggests:	ksystemlog
@@ -28,13 +28,11 @@ Suggests:	ksystemlog
 %description
 The kdeadmin package contains packages that usually only a system
 administrator might need:
-	- kcron
-		Editor for the cron command scheduler.
-	- kuser
-		An user manager.
+- kcron (editor for the cron command scheduler)
+- kuser (user manager)
+- ksystemlog (system log viewer tool for KDE4)
 
 %files
-%doc README
 
 #------------------------------------------------------------------------
 
@@ -76,7 +74,7 @@ tasks on a Unix system.
 
 %package -n ksystemlog
 Group:		Graphical desktop/KDE
-Summary:	System log viewer tool for KDE 4
+Summary:	System log viewer tool for KDE4
 Provides:	ksystemlog4
 
 %description -n ksystemlog
@@ -127,6 +125,8 @@ KSystemLog has the following features :
 %changelog
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.5-1
 - New version 4.10.5
+- Fix files
+- Update description
 
 * Wed Jun 05 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.4-1
 - New version 4.10.4
