@@ -1,29 +1,15 @@
 Summary:	K Desktop Environment - Administrative Tools
 Name:		kdeadmin4
-Version:	4.10.5
+Version:	4.11.0
 Release:	1
 Epoch:		2
-License:	GPL
+License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
-Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdeadmin-%{version}.tar.xz
-BuildRequires:	kdelibs4-devel
-BuildRequires:	kdepimlibs4-devel
-BuildRequires:	python-kde4-devel
-BuildRequires:	python-qt4
-BuildRequires:	python-devel
-BuildRequires:	python-cups
-BuildRequires:	automoc4
-Requires:	pciutils
 Suggests:	kcron
-Suggests:	kuser
 Suggests:	ksystemlog
+Suggests:	kuser
+BuildArch:	noarch
 
 %description
 The kdeadmin package contains packages that usually only a system
@@ -36,93 +22,17 @@ administrator might need:
 
 #------------------------------------------------------------------------
 
-%package -n kuser
-Group:		Graphical desktop/KDE
-Summary:	Users and groups manager
-Provides:	kuser4
-Provides:	kde4-kuser = %{EVRD}
-
-%description -n kuser
-Kuser is a tool to create, remove and modify user accounts and groups.
-
-%files -n kuser
-%{_kde_bindir}/kuser
-%{_kde_applicationsdir}/kuser.desktop
-%{_kde_appsdir}/kuser
-%{_kde_datadir}/config.kcfg/kuser.kcfg
-%{_kde_docdir}/*/*/kuser
-%{_kde_iconsdir}/*/*/*/kuser*
-
-#------------------------------------------------------------------------
-
-%package -n kcron
-Group:		Graphical desktop/KDE
-Summary:	Graphical task scheduler
-Provides:	kcron4
-Provides:	kde4-kcron = %{EVRD}
-
-%description -n kcron
-Kcron is a graphical frontend to the cron system, used to schedule regular 
-tasks on a Unix system.
-
-%files -n kcron
-%{_kde_services}/kcm_cron.desktop
-%{_kde_libdir}/kde4/kcm_cron.so
-%{_kde_docdir}/*/*/kcron
-
-#------------------------------------------------------------------------
-
-%package -n ksystemlog
-Group:		Graphical desktop/KDE
-Summary:	System log viewer tool for KDE4
-Provides:	ksystemlog4
-
-%description -n ksystemlog
-This program is developed for being used by beginner users,
-which don't know how to find information about their Linux system,
-and how the log files are in their computer.
-But it is also designed for advanced users,
-who want to quickly see problems occuring on their server.
-
-KSystemLog has the following features :
-
-- View all the main log of your system, by selecting them
- directly in a menu
- - Auto display new lines logged in bold
- - Tabbed view to allow displaying several logs at the same time
- - Saving in a file and copying to clipboard the selected log
-   lines are also implemented (and email to your friends)
-   - It can parse the following log files of your system :
-
-   - X.org (or Xfree) logs
-   - System logs (using the Syslog parser of KSystemLog)
-   - Kernel logs
-   - Daemons logs
-   - Cron logs
-   - Boot logs
-   - Authentication logs
-   - Cups logs
-   - ACPID logs
-
-%files -n ksystemlog
-%{_kde_bindir}/ksystemlog
-%{_kde_appsdir}/ksystemlog
-%{_kde_applicationsdir}/ksystemlog.desktop
-%{_kde_docdir}/*/*/ksystemlog
-
-#------------------------------------------------------------------------
-
 %prep
-%setup -q -n kdeadmin-%{version}
 
 %build
-%cmake_kde4
-%make
 
 %install
-%makeinstall_std -C build
 
 %changelog
+* Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.0-1
+- New version 4.11.0
+- A metapackage from now on
+
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.5-1
 - New version 4.10.5
 - Fix files
