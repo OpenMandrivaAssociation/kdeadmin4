@@ -1,6 +1,6 @@
 Summary:	K Desktop Environment - Administrative Tools
 Name:		kdeadmin4
-Version:	4.11.0
+Version:	4.11.1
 Release:	1
 Epoch:		2
 License:	GPLv2+
@@ -29,6 +29,9 @@ administrator might need:
 %install
 
 %changelog
+* Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.1-1
+- New version 4.11.1
+
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.0-1
 - New version 4.11.0
 - A metapackage from now on
