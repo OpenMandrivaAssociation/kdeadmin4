@@ -29,9 +29,6 @@ administrator might need:
 %install
 
 %changelog
-* Thu Oct 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.14.1-1
-- New version 4.14.1
-
 * Mon Sep 29 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.14.1-1
 - New version 4.14.1
 
