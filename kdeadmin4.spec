@@ -5,7 +5,7 @@ Release:	3
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://www.kde.org
+Url:		https://www.kde.org
 Suggests:	kcron
 Suggests:	ksystemlog
 Suggests:	kuser
